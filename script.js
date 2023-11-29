@@ -15,11 +15,16 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection === "scissors" && computerSelection === "paper")
     ) {
         playerScore++;
+        updateScore();
         return `You Win! ${playerSelection} beats ${computerSelection}.`;
     } else if (playerSelection === computerSelection) {
         return `Tie! Play again."`
     } else {
         computerScore++;
+        updateScore();
         return `You lost! ${computerSelection} beats ${playerSelection}.`;
     }
+}
+function updateScore() {
+    document.getElementById("score").innerText = `Score: Player ${playerScore} - Computer ${computerScore}`;
 }
